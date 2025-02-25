@@ -5,11 +5,13 @@ import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
+
 const Login = () => {
   const [emailId, setEmailId] = useState("jadhao@gmail.com");
   const [password, setPassword] = useState("ADas@1234");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error , setError]=useState("");
 
   const handleLogin = async () => {
     try {
@@ -25,6 +27,7 @@ const Login = () => {
       return navigate("/");
     } catch (err) {
       console.error(err);
+      setError(err?.response?.data||"Something went wrong ")
     }
   };
 
@@ -57,10 +60,11 @@ const Login = () => {
               />
             </label>
           </div>
-          <div className="card-actions justify-center m-2">
+          <div className="card-actions justify-center  m-2 ">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
             </button>
+            <p>{error}</p>
           </div>
         </div>
       </div>
