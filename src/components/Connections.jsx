@@ -43,7 +43,7 @@ const Connections = () => {
             >
               <img
                 alt="User"
-                className="w-24 h-24 rounded-full border-4 border-gray-200"
+                className="w-24 h-24 rounded-full border-4 border-gray-200 "
                 src={photoUrl}
               />
               <h2 className="font-semibold text-xl mt-3">{firstName + " " + lastName}</h2>
